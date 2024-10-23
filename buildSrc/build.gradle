@@ -1,0 +1,17 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.spring.gradle:dependency-management-plugin:1.1.6'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.3.4'
+    implementation 'org.domaframework.doma:compile:2.0.0'
+    implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.18"
+    implementation "com.diffplug.spotless:spotless-plugin-gradle:7.0.0.BETA3"
+}
+
