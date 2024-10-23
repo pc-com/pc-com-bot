@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "com.diffplug.spotless"
+    id 'com.github.spotbugs'
 }
 
 repositories {
@@ -41,4 +42,10 @@ spotless {
         removeUnusedImports()
         lineEndings("UNIX")
     }
+}
+
+spotbugs {
+    effort = com.github.spotbugs.snom.Effort.valueOf("MAX")
+    reportLevel = com.github.spotbugs.snom.Confidence.valueOf("LOW")
+    excludeFilter = file("$rootDir/findbugs-exclude.xml")
 }
