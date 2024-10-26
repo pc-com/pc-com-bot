@@ -1,0 +1,12 @@
+plugins {
+    id "org.domaframework.doma.compile"
+    id 'buildlogic.spring-conventions'
+}
+
+dependencies {
+    runtimeOnly 'org.postgresql:postgresql'
+
+    implementation 'org.seasar.doma.boot:doma-spring-boot-starter:2.0.0'
+    annotationProcessor 'org.seasar.doma:doma-processor:3.0.0'
+}
+
