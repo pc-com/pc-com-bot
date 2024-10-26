@@ -1,0 +1,16 @@
+*	@kurages @siraisi368 @gx1285
+
+# github actions
+.github/workflows	@kurages
+
+# build tools
+/buildSrc/	@kurages
+*.gradle	@kurages
+*.gradle.kts	@kurages
+*.groovy	@kurages
+
+# code quality
+.editorconfig	@kurages
+/findbugs-exclude.xml	@kurages
+
+
