@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Factories {
     @Bean
-    public IURLFactory basicFactory() {
+    public static IURLFactory basicFactory() {
         return new IURLFactory() {
             private static final List<String> domains = List.of(
                 "discord.com",
