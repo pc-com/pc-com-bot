@@ -1,4 +1,4 @@
-package org.example.app.listenner;
+package org.example.app.application.example;
 
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

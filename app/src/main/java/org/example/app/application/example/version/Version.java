@@ -1,4 +1,4 @@
-package org.example.app.listenner.version;
+package org.example.app.application.example.version;
 
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

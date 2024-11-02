@@ -1,4 +1,4 @@
-package org.example.app.listenner.version;
+package org.example.app.application.example.version;
 
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;
