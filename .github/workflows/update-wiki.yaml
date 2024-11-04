@@ -28,7 +28,7 @@ jobs:
       - name: Configure Git
         run: |
           git config user.name "${GITHUB_ACTOR}"
-          git config user.email $(git log --no-merges --pretty='%ae' -n1 HEAD)
+          git config user.email $(git -C main log --no-merges --pretty='%ae' -n1 HEAD)
 
       - name: Update Wiki
         run: |
