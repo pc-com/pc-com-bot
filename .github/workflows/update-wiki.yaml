@@ -15,7 +15,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           sparse-checkout: docs
 
       - name: Checkout Wiki Repository
@@ -23,7 +22,6 @@ jobs:
         with:
           repository: "${{ github.repository }}.wiki"
           path: wiki
-          fetch-depth: 0
 
       - name: Configure Git
         run: |
