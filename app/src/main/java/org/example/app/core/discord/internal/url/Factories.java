@@ -18,7 +18,10 @@ public class Factories {
             private static final List<String> domains = List.of(
                 "discord.com",
                 "discordapp.com",
-                "canary.discord.com"
+                "canary.discord.com",
+                "canary.discordapp.com",
+                "ptb.discord.com",
+                "ptb.discordapp.com"
             );
 
             @Override
