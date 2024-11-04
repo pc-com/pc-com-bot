@@ -27,13 +27,12 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email $(git -C main log --no-merges --pretty='%ae' -n1 HEAD)
+          git -C wiki config user.name "${GITHUB_ACTOR}"
+          git -C wiki config user.email $(git -C main log --no-merges --pretty='%ae' -n1 HEAD)
 
       - name: Update Wiki
         run: |
           rsync -a --delete main/docs/ wiki/
-          cd wiki
-          git add .
-          git commit -m "${GITHUB_WORKFLOW}"
-          git push
+          git -C wiki add .
+          git -C wiki commit -m "${GITHUB_WORKFLOW}"
+          git -C wiki push
