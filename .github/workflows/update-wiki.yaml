@@ -32,7 +32,7 @@ jobs:
 
       - name: Update Wiki
         run: |
-          rsync -a --delete main/docs/ wiki/
+          rsync --exclude=".*/" -a --delete main/docs/ wiki/
           git -C wiki add .
           git -C wiki commit -m "${GITHUB_WORKFLOW}"
           git -C wiki push
