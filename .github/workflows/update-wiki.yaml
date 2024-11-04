@@ -9,26 +9,19 @@ on:
 
 jobs:
   update-wiki:
-    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - name: Enable Sparse Checkout
-        run: |
-          git sparse-checkout init --cone
-          git sparse-checkout set docs
+          sparse-checkout: docs
 
       - name: Checkout Wiki Repository
         uses: actions/checkout@v4
         with:
           repository: "${{ github.repository }}.wiki"
           path: wiki
-          fetch-depth: 0
 
       - name: Configure Git
         run: |
