@@ -3,7 +3,7 @@ name: Wiki Update
 on:
   push:
     branches:
-      - 'master'  
+      - 'master'
     paths:
       - 'docs/**'
 
@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: docs
+          path: main
 
       - name: Checkout Wiki Repository
         uses: actions/checkout@v4
@@ -26,11 +27,11 @@ jobs:
       - name: Configure Git
         run: |
           git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.email $(git log --no-merges --pretty='%ae' -n1 HEAD)
 
-      - name: Update Wiki 
+      - name: Update Wiki
         run: |
-          rsync -a --delete docs/ wiki/ 
+          rsync -a --delete main/docs/ wiki/
           cd wiki
           git add .
           git commit -m "${GITHUB_WORKFLOW}"
