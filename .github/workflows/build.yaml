@@ -2,8 +2,13 @@ name: build
 
 on:
   push:
+    branches: 
+      - master
   pull_request:
     types: [ opened, synchronize ]
+    paths-ignore: 
+      - 'docs/**' 
+      - '**/README.md'
 
 jobs:
   build:
