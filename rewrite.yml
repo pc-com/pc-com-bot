@@ -1,0 +1,6 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: rename.name.pacakge
+recipeList:
+    - org.openrewrite.java.ChangePackage:
+          oldPackageName: org.example
+          newPackageName: io.github.pc_com

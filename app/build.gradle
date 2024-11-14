@@ -2,6 +2,7 @@ plugins {
     id 'buildlogic.java-application-conventions'
     id 'buildlogic.spring-conventions'
     id 'buildlogic.doma-conventions'
+    id 'buildlogic.rewrite'
 }
 
 dependencies {
