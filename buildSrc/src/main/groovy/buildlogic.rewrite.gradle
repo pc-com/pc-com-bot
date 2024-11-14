@@ -1,0 +1,8 @@
+plugins {
+    id "org.openrewrite.rewrite"
+}
+
+rewrite {
+    configFile = file("$rootDir/rewrite.yml")
+    activeRecipe("rename.name.pacakge")
+}
