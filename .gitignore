@@ -7,3 +7,5 @@ build
 .idea
 .settings
 
+.mkdocs-venv
+site
