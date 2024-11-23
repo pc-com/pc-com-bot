@@ -1,0 +1,26 @@
+name: pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/**'
+      - 'mkdocs-requirements.txt'
+      - 'mkdocs-run.sh'
+      - 'mkdocs.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: .mkdocs-venv
+          key: mkdocs-venv-${{ hashFiles('mkdocs-requirements.txt') }}
+      - run: ./mkdocs-run.sh gh-deploy --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

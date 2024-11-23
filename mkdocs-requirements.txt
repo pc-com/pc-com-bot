@@ -1,0 +1,5 @@
+mkdocs==1.6.0
+pymdown-extensions==10.8.1
+plantuml-markdown==3.9.7
+mkdocs-material==9.5.28
+mkdocs-awesome-pages-plugin==2.9.2
