@@ -9,7 +9,7 @@ dependencies {
     implementation 'org.apache.commons:commons-text'
     implementation 'org.apache.commons:commons-lang3:3.17.0'
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'net.dv8tion:JDA:5.2.1'
+    implementation 'net.dv8tion:JDA:5.2.2'
 }
 
 application {
