@@ -9,3 +9,7 @@ build
 
 .mkdocs-venv
 site
+
+application-secret.yaml
+
+*.class
