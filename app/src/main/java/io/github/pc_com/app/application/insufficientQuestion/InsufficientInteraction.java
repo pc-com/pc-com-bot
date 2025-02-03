@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,8 @@ public class InsufficientInteraction extends ListenerAdapter {
     private static final Map<String, String> allData = new HashMap<>();
     private static final Map<String, String> softwareData = new HashMap<>();
     private static final Map<String, String> hardwareData = new HashMap<>();
-    private static final Long bestAnswerRole = 1067445728542199828L;
+    @Value("${role.bestanswer}")
+    private Long bestAnswerRole;
 
     static {
         allData.put("title", "- タイトルは__**一目で内容が分かる**__ようにお書きください。");

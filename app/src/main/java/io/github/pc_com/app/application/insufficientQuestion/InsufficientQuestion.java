@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
@@ -25,9 +26,10 @@ import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 @Component
 @RequiredArgsConstructor
 public class InsufficientQuestion extends ListenerAdapter {
-    private final Long questionChannelId = 1019989168283197483L;
     private final static String guideLineUrl = "https://discord.com/channels/932529116400459786/1217675613679124530";
     private final static String guideLineImageUrl = "https://cdn.discordapp.com/attachments/1160149457069944892/1160156625739468850/BestAnswer.png";
+    @Value("${channel.question}")
+    private Long questionChannelId;
 
     @Override
     public void onChannelCreate(ChannelCreateEvent event) {
