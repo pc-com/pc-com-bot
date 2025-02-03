@@ -28,7 +28,7 @@ public class InsufficientInteraction extends ListenerAdapter {
     private static final Map<String, String> softwareData = new HashMap<>();
     private static final Map<String, String> hardwareData = new HashMap<>();
     @Value("${role.bestanswer}")
-    private Long bestAnswerRole;
+    private final Long bestAnswerRole;
 
     static {
         allData.put("title", "- タイトルは__**一目で内容が分かる**__ようにお書きください。");

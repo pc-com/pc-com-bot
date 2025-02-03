@@ -29,7 +29,7 @@ public class InsufficientQuestion extends ListenerAdapter {
     private final static String guideLineUrl = "https://discord.com/channels/932529116400459786/1217675613679124530";
     private final static String guideLineImageUrl = "https://cdn.discordapp.com/attachments/1160149457069944892/1160156625739468850/BestAnswer.png";
     @Value("${channel.question}")
-    private Long questionChannelId;
+    private final Long questionChannelId;
 
     @Override
     public void onChannelCreate(ChannelCreateEvent event) {
