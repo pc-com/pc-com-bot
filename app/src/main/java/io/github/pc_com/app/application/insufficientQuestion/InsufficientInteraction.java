@@ -3,7 +3,6 @@ package io.github.pc_com.app.application.insufficientQuestion;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,6 +17,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed.Field;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.utils.messages.MessageEditBuilder;
 
 @Slf4j
 @Component
@@ -26,6 +26,7 @@ public class InsufficientInteraction extends ListenerAdapter {
     private static final Map<String, String> allData = new HashMap<>();
     private static final Map<String, String> softwareData = new HashMap<>();
     private static final Map<String, String> hardwareData = new HashMap<>();
+    private static final Long bestAnswerRole = 1067445728542199828L;
 
     static {
         allData.put("title", "- タイトルは__**一目で内容が分かる**__ようにお書きください。");
@@ -70,7 +71,35 @@ public class InsufficientInteraction extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
+        if (!event.getComponentId().startsWith("guideline_ok_")) {
+            return;
+        }
+        String[] parts = event.getComponentId().split("_", 3);
+        var ownerId = parts[2];
 
+        if (event.getUser().getId().equals(ownerId)) {
+            event.reply(
+                    "投稿者は実行できません。")
+                    .setEphemeral(true)
+                    .queue();
+            return;
+        }
+        if (!event.getMember().getRoles().stream().anyMatch(role -> bestAnswerRole.equals(role.getIdLong()))) {
+            event.reply("ベストアンサー以外は実行できません。")
+                    .setEphemeral(true)
+                    .queue();
+            return;
+        }
+        event.editMessage(new MessageEditBuilder()
+                .setComponents()
+                .setEmbeds(
+                        new EmbedBuilder()
+                                .setTitle("❓ 質問が投稿されました")
+                                .setDescription("> ```ガイドラインの条件を満たしています```")
+                                .setColor(0x1f982d)
+                                .setFooter(String.format("Confirmed By @%s", event.getUser().getName()))
+                                .build())
+                .build()).queue();
     }
 
     private void category(StringSelectInteractionEvent event) {
@@ -82,16 +111,14 @@ public class InsufficientInteraction extends ListenerAdapter {
         var category = parts[2];
         var ownerId = parts[3];
 
-        /**
-         * if (event.getUser().getId().equals(ownerId)) {
-         * event.reply(
-         * "投稿者は実行できません。")
-         * .setEphemeral(true)
-         * .queue();
-         * return;
-         * }
-         *
-         */
+        if (event.getUser().getId().equals(ownerId)) {
+            event.reply(
+                    "投稿者は実行できません。")
+                    .setEphemeral(true)
+                    .queue();
+            return;
+        }
+
         var message = getContent(category, event);
 
         event.editMessageEmbeds(event.getMessage().getEmbeds().get(getIndex(category)),

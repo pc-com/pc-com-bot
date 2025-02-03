@@ -25,7 +25,7 @@ import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 @Component
 @RequiredArgsConstructor
 public class InsufficientQuestion extends ListenerAdapter {
-    private final Long questionChannelId = 1218459760139964456L;
+    private final Long questionChannelId = 1019989168283197483L;
     private final String guideLineUrl = "https://discord.com/channels/932529116400459786/1217675613679124530";
     private final String guideLineImageUrl = "https://cdn.discordapp.com/attachments/1160149457069944892/1160156625739468850/BestAnswer.png";
 
