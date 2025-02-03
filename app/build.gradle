@@ -13,5 +13,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'org.example.app.App'
+    mainClass = 'io.github.pc_com.app.App'
 }
