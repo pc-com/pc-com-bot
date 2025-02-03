@@ -50,8 +50,8 @@ public class InsufficientInteraction extends ListenerAdapter {
         softwareData.put("code", "- __**コードはコピペで全文を貼り付け**__ること(スクショだと回答者の環境で再現するのが手間です。)");
         softwareData.put("error", "- __**エラーはコピペで全文を貼り付け**__ること");
         softwareData.put("codeblock",
-                "- コードはシンタックスハイライトをつけること\nシンタックスハイライト付け方↓\n```lang(py,js,rb等)\nコード\n```");
-        softwareData.put("os", "- 必ずこれらの__**名前とバージョンを記載**__すること\\n - OS(windows 11, Ubuntu 24.04, など)");
+                "- コードはシンタックスハイライトをつけること\nシンタックスハイライト付け方\n```lang(py,js,rb等)\nコード\n```");
+        softwareData.put("os", "- 必ずこれらの__**名前とバージョンを記載**__すること\n - OS(windows 11, Ubuntu 24.04, など)");
         softwareData.put("library",
                 "- 必ずこれらの__**名前とバージョンを記載**__すること\n- language(Python 3.13, Node.js 23, など)\n- サードパーティライブラリ(pipやnpmなどでインストールしたライブラリ群)");
 
@@ -124,7 +124,7 @@ public class InsufficientInteraction extends ListenerAdapter {
         event.editMessageEmbeds(event.getMessage().getEmbeds().get(getIndex(category)),
                 getEmbed(message, category, event)).queue();
         event.getChannel().sendMessage(
-                String.format("<@!%s>  より下記事項が足りないと指摘されました\n%s", ownerId, message))
+                String.format("<@!%s> より下記事項が足りないと指摘されました%n%s", ownerId, message))
                 .queue();
 
     }

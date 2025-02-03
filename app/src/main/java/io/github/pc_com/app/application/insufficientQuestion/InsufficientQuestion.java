@@ -26,8 +26,8 @@ import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 @RequiredArgsConstructor
 public class InsufficientQuestion extends ListenerAdapter {
     private final Long questionChannelId = 1019989168283197483L;
-    private final String guideLineUrl = "https://discord.com/channels/932529116400459786/1217675613679124530";
-    private final String guideLineImageUrl = "https://cdn.discordapp.com/attachments/1160149457069944892/1160156625739468850/BestAnswer.png";
+    private final static String guideLineUrl = "https://discord.com/channels/932529116400459786/1217675613679124530";
+    private final static String guideLineImageUrl = "https://cdn.discordapp.com/attachments/1160149457069944892/1160156625739468850/BestAnswer.png";
 
     @Override
     public void onChannelCreate(ChannelCreateEvent event) {
@@ -43,7 +43,7 @@ public class InsufficientQuestion extends ListenerAdapter {
 
     private void sendMessage(ThreadChannel thread) {
         var messageData = new MessageCreateBuilder()
-                .addContent(String.format("<@%s> **質問する際のガイドラインは確認しましたか？**\n%s", thread.getOwnerId(), guideLineUrl))
+                .addContent(String.format("<@%s> **質問する際のガイドラインは確認しましたか？**%n%s", thread.getOwnerId(), guideLineUrl))
                 .addEmbeds(getEmbeds()).addComponents(getComponents(thread.getOwnerId()))
                 .build();
         thread.sendMessage(messageData).queue();
