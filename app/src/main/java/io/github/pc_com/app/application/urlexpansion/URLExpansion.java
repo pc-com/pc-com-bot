@@ -68,7 +68,7 @@ public class URLExpansion extends ListenerAdapter {
                     var message = webhook.sendMessage(msgData)
                             .setUsername(author.getName())
                             .setAvatarUrl(author.getAvatarUrl());
-                    if (threadId != null) {
+                    if (threadId == null) {
                         message.setThreadId(threadId).queue();
                     } else {
                         message.queue();
