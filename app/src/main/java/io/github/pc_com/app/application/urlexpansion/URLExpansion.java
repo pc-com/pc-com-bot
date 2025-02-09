@@ -72,9 +72,10 @@ public class URLExpansion extends ListenerAdapter {
                             .setUsername(author.getName())
                             .setAvatarUrl(author.getAvatarUrl());
                     if (threadId != null) {
-                        message.setThreadId(threadId);
+                        message.setThreadId(threadId).queue();
+                    } else {
+                        message.queue();
                     }
-                    message.queue();
                 });
     }
 
