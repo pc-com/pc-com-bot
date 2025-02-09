@@ -37,9 +37,7 @@ public class URLExpansion extends ListenerAdapter {
             return;
         }
         var urls = urlFactory.getUrls(event.getMessage().getContentRaw());
-        if (event.getChannelType().equals(ChannelType.GUILD_NEWS_THREAD)
-                || event.getChannelType().equals(ChannelType.GUILD_PUBLIC_THREAD)
-                || event.getChannelType().equals(ChannelType.GUILD_PRIVATE_THREAD)) {
+        if (event.isFromThread()) {
             var thread = event.getChannel().asThreadChannel();
             webhookMgr.getWebhook(thread.getParentChannel(),
                     webhook -> {
