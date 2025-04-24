@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     implementation 'io.spring.gradle:dependency-management-plugin:1.1.7'
-    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.4.4'
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.4.5'
     implementation 'org.domaframework.doma:compile:2.0.0'
     implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.18"
     implementation "com.diffplug.spotless:spotless-plugin-gradle:7.0.3"
