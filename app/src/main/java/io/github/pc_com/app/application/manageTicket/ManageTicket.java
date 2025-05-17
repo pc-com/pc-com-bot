@@ -133,7 +133,7 @@ public class ManageTicket extends ListenerAdapter {
         if (createuser == null) return;
 
         ThreadChannel thread = event.getChannel().asThreadChannel();
-        thread.removeThreadMember(createuser);
+        thread.removeThreadMember(createuser).queue();
         thread.getManager().setArchived(true).queue();
     }
 
