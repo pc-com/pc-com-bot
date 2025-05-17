@@ -53,7 +53,7 @@ public class ManageTicket extends ListenerAdapter {
             return;
         }
 
-        if (event.getChannel().getId() != "1085037720964976701") return;
+        if (!event.getChannel().getId().equals("1085037720964976701")) return;
 
         if (!event.getMessage().getContentRaw().startsWith("チケットボタン追加")) return;
 
