@@ -53,7 +53,11 @@ public class ManageTicket extends ListenerAdapter {
             return;
         }
 
-        String[] args = str.parseUseridFromMessage(" ", event);
+        if (event.getChannel().getId() != "1085037720964976701") return;
+
+        if (!event.getMessage().getContentRaw().startsWith("チケットボタン追加")) return;
+
+        String[] args = str.parsArgsFromMessage(" ", event);
         String channelId = args[0];
 
         TextChannel channel = event.getJDA().getTextChannelById(channelId);

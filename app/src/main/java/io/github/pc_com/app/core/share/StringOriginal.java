@@ -1,5 +1,7 @@
 package io.github.pc_com.app.core.share;
 
+import java.util.Arrays;
+
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -20,8 +22,10 @@ public class StringOriginal {
      * @param event メッセージ送信イベント
      * @return ユーザID
      */
-    public String[] parseUseridFromMessage(String splitContent,MessageReceivedEvent event){
+    public String[] parsArgsFromMessage(String splitContent,MessageReceivedEvent event){
         String content = event.getMessage().getContentRaw();
-        return content.split(splitContent);
+        String[] original = content.split(splitContent);
+
+        return Arrays.copyOfRange(original,1,original.length);
     }
 }
