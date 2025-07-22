@@ -12,7 +12,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.5.3'
     implementation 'org.domaframework.doma:compile:2.0.0'
     implementation "com.github.spotbugs.snom:spotbugs-gradle-plugin:6.0.18"
-    implementation "com.diffplug.spotless:spotless-plugin-gradle:7.1.0"
+    implementation "com.diffplug.spotless:spotless-plugin-gradle:7.2.1"
     implementation 'org.openrewrite.rewrite:org.openrewrite.rewrite.gradle.plugin:6.24.0'
 }
 
